@@ -24,4 +24,5 @@ urlpatterns = [
     path('index2/', views.index2),
     path('home/', config_views.home),
     path('first/', include('firstapp.urls')),
+    path('second/', include('secondapp.urls')),
 ]
