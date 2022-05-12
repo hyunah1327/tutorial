@@ -25,4 +25,5 @@ urlpatterns = [
     path('home/', config_views.home),
     path('first/', include('firstapp.urls')),
     path('second/', include('secondapp.urls')),
+    path('third/', include('thirdapp.urls')),
 ]
