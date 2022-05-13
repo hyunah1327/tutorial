@@ -2,12 +2,34 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import ArmyShop, Course
 
+def course(request):
+    return render(
+        request, 'secondapp/course.html',{}
+    )
+
+def army_shop2(request,year,month):
+    shops = ArmyShop.objects.filter(
+        year=year, month=month)
+    # result = ''
+    # for c in course:
+    #     result += c.name + '<br>'
+    # return HttpResponse(result)
+
+    return render(
+        request, 'secondapp/army_shop.html',
+     {'data':shops}
+     )
+
 def army_shop(request):
     shops = ArmyShop.objects.all()
     # result = ''
     # for c in course:
     #     result += c.name + '<br>'
     # return HttpResponse(result)
+    prd = request.GET.get('prd')
+    if not prd:
+        prd = ''
+    shops = ArmyShop.objects.filter(name__contains=prd)
 
     return render(
         request, 'secondapp/army_shop.html',
