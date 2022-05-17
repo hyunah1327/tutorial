@@ -3,7 +3,16 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
-from .models import Owner, Shop, JejuOlle
+from .models import Owner, Shop, JejuOlle, Hospital
+
+def hospital(request):
+    hospitals = Hospital.objects.all()
+    return render(
+    request,
+    'thirdapp/hospital.html',
+    {'hospitals' : hospitals }
+)
+
 
 def shop(request):
     shop_list = Shop.objects.all()

@@ -6,6 +6,19 @@ from django.db.models.fields import CharField, IntegerField
 from django.db.models.fields import FloatField
 from django.db.models.fields import DateField
 
+class Hospital(models.Model):
+    id = models.CharField(max_length=100, null=True)
+    sido = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    medical = models.IntegerField(default=0)
+    room = models.IntegerField(default=0)
+    tel = models.CharField(max_length=15)
+    address = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = 'hospital'
+        managed = False
+
 class JejuOlle(models.Model):
     course = CharField(max_length=10)
     course_name = CharField(max_length=20)
