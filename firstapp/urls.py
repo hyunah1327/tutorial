@@ -16,4 +16,5 @@ urlpatterns = [
     path('tag/', views.tag),
     path('var/', views.var),
     path('filter/', views.filter),
+    path('form/model/', views.form_model),
 ]

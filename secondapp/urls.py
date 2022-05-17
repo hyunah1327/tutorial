@@ -9,4 +9,5 @@ path('army_shop/', views.army_shop),
 path('army_shop/<int:year>/<int:month>/',
  views.army_shop2),
 path('course/', views.course),
+path('course/save/', views.course_save),
 ]

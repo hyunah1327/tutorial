@@ -8,6 +8,24 @@ import datetime
 from django.shortcuts import render
 
 import datetime
+from django.shortcuts import redirect
+from .forms import CurriculumForm
+
+def form_model(request):
+        if request.method == 'POST':
+                form = CurriculumForm(request.POST)
+                if form.is_valid():
+
+                        c = form.save(commit=False)
+                        c.save()
+
+                        return redirect('/first/form/model/')
+        else:
+                form = CurriculumForm()
+        return render(
+                request, 'firstapp/form_model.html',
+                { 'form': form }
+        )
 
 def template(request):
         return render(
